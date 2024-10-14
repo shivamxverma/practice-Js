@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Rock paper Scissor</title>
+</head>
+<body>
+  <h1>Lets Play a Game</h1>
+  <h2>Rock Paper Scissor</h2>
+  <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Nihil amet dolor magnam culpa adipisci quaerat ipsa possimus, ratione voluptatibus sequi beatae error debitis sapiente iste saepe provident cumque nesciunt nulla! Dolor eum voluptatem saepe quisquam possimus, illo perspiciatis dignissimos consequatur ipsum numquam, error soluta tempora aliquid laboriosam `modi quae expedita.</p>
+  <button
+  onclick="Game('rock')"
+  >Rock</button>
+  <button
+  onclick="Game('paper')"
+  >Paper</button>
+  <button
+  onclick="Game('scissor')"
+  >Scissor</button>
+  <button
+  onclick="Game('reset')"
+  >Reset</button>
+  <script>
+    const gamemove = ['rock','paper','scissor'];
+    function Game(move){
+        if(move == 'reset'){
+          console.log('play again');
+          return ;
+        }
+        let cmove = computer();
+        if(move == 'paper'){
+          if(cmove == 'rock')console.log('you win');
+          else if(cmove == 'scissor')console.log('you loose');
+          else console.log('play again');
+        }
+        else if(move == 'rock'){
+          if(cmove == 'paper')console.log('you loose');
+          else if(cmove == 'scissor')console.log('you win');
+          else console.log('play again');
+        }
+        else {
+          if(cmove == 'paper')console.log('you win');
+          else if(cmove == 'rock')console.log('you loose');
+          else console.log('play again');
+        }
+    }
+    function computer(){
+      const ri = Math.floor(Math.random()*gamemove.length);
+      const cmove = gamemove[ri];
+      return cmove;
+    }
+  </script>
+</body>
+</html>
