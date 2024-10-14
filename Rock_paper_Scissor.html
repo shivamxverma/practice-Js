@@ -20,11 +20,7 @@
   onclick="Game('reset')"
   >Reset</button>
   <script>
-    const score = {
-      win : 0,
-      loss : 0,
-      tie : 0
-    }
+    const score = JSON.parse(localStorage.getItem('score')) || { win: 0, loss: 0, tie: 0 };
     const gamemove = ['rock','paper','scissor'];
     function Game(move){
         let result = '';
@@ -50,6 +46,9 @@
         if(result == 'win')score.win++;
         else if(result == 'loose')score.loss++;
         else if(result == 'again')score.tie++;
+
+        localStorage.setItem('score',JSON.stringify(score));
+
         alert(`win : ${score.win} loss : ${score.loss} tie : ${score.tie}`);
     }
     function computer(){
