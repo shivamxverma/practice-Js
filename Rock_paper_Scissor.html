@@ -16,6 +16,9 @@
   <button
   onclick="Game('scissor')"
   >Scissor</button>
+  <div class="you"></div>
+  <div class="com"></div>
+  <div class="status"></div>
   <button
   onclick="Game('reset')"
   >Reset</button>
@@ -49,7 +52,21 @@
 
         localStorage.setItem('score',JSON.stringify(score));
 
-        alert(`win : ${score.win} loss : ${score.loss} tie : ${score.tie}`);
+        // alert(`win : ${score.win} loss : ${score.loss} tie : ${score.tie}`);
+        if(result === 'loose'){
+          document.querySelector('.you').innerHTML = `you : ${result}`;
+          document.querySelector('.com').innerHTML = `computer : win`;
+        }
+        else {
+          document.querySelector('.you').innerHTML = `you : ${result}`;
+          document.querySelector('.com').innerHTML = `computer : loose`;
+        }
+        document.querySelector('.status').innerHTML = `win : ${score.win} looses : ${score.loss} tie : ${score.tie}`;
+        if(move == 'reset'){
+          document.querySelector('.you').innerHTML = '';
+          document.querySelector('.com').innerHTML = '';
+          documnet.querySelector('.status').innerHTML = '';
+        }
     }
     function computer(){
       const ri = Math.floor(Math.random()*gamemove.length);
