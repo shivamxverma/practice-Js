@@ -2,6 +2,47 @@
 <html lang="en">
 <head>
   <title>Rock paper Scissor</title>
+  <style>
+    .rock-btn{
+      background-color: black;
+      color: white;
+      padding: 10px;
+      border-color: white;
+      cursor: pointer;
+      border-radius: 50%;
+    }
+    .paper-btn{
+      background-color: black;
+      color: white;
+      padding: 10px;
+      border-color: white;
+      cursor: pointer;
+      border-radius: 50%;
+    }
+    .scissor-btn{
+      background-color: black;
+      color: white;
+      padding: 10px;
+      border-color: white;
+      cursor: pointer;
+      border-radius: 50%;
+    }
+    .you{
+      padding: 10px;
+      background-color: lightgray;
+      margin-top: 10px;
+    }
+    .com{
+      padding: 10px;
+      background-color: lightgray;
+      margin-top: 10px;
+    }
+    .status{
+      padding: 10px;
+      background-color: lightgray;
+      margin-top: 10px;
+    }
+  </style>
 </head>
 <body>
   <h1>Lets Play a Game</h1>
@@ -9,13 +50,13 @@
   <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Nihil amet dolor magnam culpa adipisci quaerat ipsa possimus, ratione voluptatibus sequi beatae error debitis sapiente iste saepe provident cumque nesciunt nulla! Dolor eum voluptatem saepe quisquam possimus, illo perspiciatis dignissimos consequatur ipsum numquam, error soluta tempora aliquid laboriosam `modi quae expedita.</p>
   <button
   onclick="Game('rock')"
-  >Rock</button>
+  class="rock-btn">👊</button>
   <button
   onclick="Game('paper')"
-  >Paper</button>
+  class="paper-btn">🖐️</button>
   <button
   onclick="Game('scissor')"
-  >Scissor</button>
+  class="scissor-btn">✌️</button>
   <div class="you"></div>
   <div class="com"></div>
   <div class="status"></div>
@@ -52,7 +93,6 @@
 
         localStorage.setItem('score',JSON.stringify(score));
 
-        // alert(`win : ${score.win} loss : ${score.loss} tie : ${score.tie}`);
         if(result === 'loose'){
           document.querySelector('.you').innerHTML = `you : ${result}`;
           document.querySelector('.com').innerHTML = `computer : win`;

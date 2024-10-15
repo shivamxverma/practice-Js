@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Array and Loop</title>
+</head>
+<body>
+  <h3>Todo List</h3>
+  <input type="text" id="input-todo" placeholder="Todo name">
+  <input type="date" placeholder="dd/mm/yyyy" id="date-input">
+  <button class="add-btn" onclick="addtodo()">Add</button>
+  <div id="output">
+  </div>
+  <script>
+    const todolist = [];
+    const tododate = [];
+    function addtodo(){
+      let input = document.querySelector('#input-todo').value;
+      let inputdate = document.querySelector('#date-input').value;
+      if (input && inputdate) {
+      todolist.push(input);
+      tododate.push(inputdate);
+      }
+
+      let todolisthtml = '';
+      for(let i=0 ; i<todolist.length ; i++) {
+      const todo = todolist[i];
+      const tdate = tododate[i];
+      const html = `<p>${todo} ${tdate} <button onclick="deleteTodo(${i})">Delete</button></p>`;
+      todolisthtml += html;
+      }
+      document.querySelector('#output').innerHTML = todolisthtml;
+    }
+
+    function deleteTodo(index) {
+      todolist.splice(index, 1);
+      tododate.splice(index, 1);
+      addtodo();
+    }
+  </script>
+</body>
+</html>
