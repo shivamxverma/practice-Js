@@ -2,19 +2,73 @@
 <html lang="en">
 <head>
   <title>Amazon</title>
+  <style>
+    .btnvalue{
+      background-color: blue;
+      color: white;
+      padding: 10px;
+      border: none;
+      cursor: pointer;
+      border-radius: 5px;
+    }
+    .output{
+      padding: 10px;
+      background-color: lightgray;
+      margin-top: 10px;
+    }
+    .in-take{
+      padding : 10px;
+      border-radius: 5px;
+      border: 1px solid black;
+      color: black;
+    }
+    .cal-button{
+      background-color: blue;
+      color: white;
+      padding: 10px;
+      border: none;
+      cursor: pointer;
+      border-radius: 5px;
+    }
+    .Subscribe-h1{
+      color: blue;
+    }
+    .calculate-h1{
+      color: blue;
+    }
+    .subscribed{
+      background-color: gray;
+      color : black;
+    }
+  </style>
 </head>
 <body>
-  <h1>Amazon Shipping Calculator</h1>
-  <p>Order under $40 : Delivery charge $10</p>
-  <p>Order above $40 : Free Delivery charge</p>
-  <input type="text" onkeyup="Calculate()">
+  <h1 class="Subscribe-h1">Your Subscribe Button</h1>
+  <br>
+  <button onclick="Enroll()" class="btnvalue">Subscribed</button>
+  <h1 class="calculate-h1">Amazon Shipping Calculator</h1>
+  <br>
+  <input class="in-take" type="text">
+  <button onclick="Calculate()" class="cal-button">Calculate</button>
   <div class="output"></div>
   <script>
+    function Enroll(){
+      let btnval = document.querySelector('.btnvalue');
+      if(btnval.innerHTML === 'Subscribed'){
+        btnval.innerHTML = 'Subscribe';
+        btnval.classList.remove('subscribed');
+      }
+      else {
+        btnval.innerHTML = 'Subscribed'; 
+        btnval.classList.add('subscribed');
+      }
+    }
     function Calculate(){
+       let btnval = document.querySelector('.btnvalue');
        let value = document.querySelector('input').value;
        const ot = document.querySelector('.output');
        value = Number(value);
-       if(value<40){
+       if(btnval.innerHTML === 'Subscribe'){
         let xd = value + 10;
         ot.innerHTML = String(xd);
        }
